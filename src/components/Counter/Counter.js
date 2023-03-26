@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./Counter.css";
 
-const Counter = () => {
+const Counter = ({count, handleAdd, handleMinus}) => {
+   
+   
+   
     return (
-        <div>
-            <h2>This is Counter Component</h2>
+        <div className = "name">
+            <h2>Count: {count}</h2>
+            <button onClick= {handleAdd} >Add</button>
+            <button onClick = {handleMinus}>Minus</button>
         </div>
     );
 };
