@@ -4,25 +4,25 @@ import Test from './components/Test/Test';
 import Test2 from './components/Test2/Test2';
 
 function App() {
-  const myObj = {
-    name:"jeff",
-    author: "kinney"
-  }
+  const names = ["sakib", "tamim", "rafiq"];
+  
   return (
     <div className="App">
-     <Test name = "kiddo"></Test>
-     <Counter></Counter>
-     <Greet name = {myObj.name} author = {myObj.author}></Greet>
+     
+    {
+      names.map(name=> (<Greet name = {name}></Greet>))
+    }
+
     </div>
   );
 }
 
 function Greet(props){
     console.log(props);
-    const {name, author} = props;
+    const {name} = props;
     return(
       <div>
-        <h1>{`my name is ${name} author name is ${author}`}</h1>
+        <h1>{`my name is ${name}`}</h1>
       </div>
     )
 }
