@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import AllGuns from './components/AllGuns/AllGuns';
 import Counter from './components/Counter/Counter';
 import Navbar from './components/Navbar/Navbar';
 import Test from './components/Test/Test';
@@ -17,6 +18,7 @@ function App() {
   return (
     <div className="App">
     <Navbar></Navbar>
+    <AllGuns></AllGuns>
 
     </div>
   );
