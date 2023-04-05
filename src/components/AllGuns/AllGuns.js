@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import SingleGun from '../SingleGun/SingleGun';
 import "./AllGuns.css";
 
-const AllGuns = () => {
+const AllGuns = ({countIncrease}) => {
     const [guns, setGuns] = useState([]);
     console.log(guns);
     // const datas = async()=>{
@@ -10,21 +10,28 @@ const AllGuns = () => {
     //     const data =await res.json();
     //     setGuns(data);
     // }
-    useEffect(()=>{
+    useEffect(() => {
         fetch(`https://raw.githubusercontent.com/mir-hussain/guns/main/data.json`)
-        .then(res=>res.json())
-        .then(data=>setGuns(data))
+            .then(res => res.json())
+            .then(data => setGuns(data))
         // datas();
-    },[])
+    }, [])
     return (
-        <div>
-            <h1 className="text-4xl text-center font-bold mt-4" >Welcome to Kopa Samsu store</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore perspiciatis error corrupti consequuntur aperiam dolores dolor et praesentium officia, molestiae dolorum consequatur placeat numquam obcaecati architecto, cumque facere maxime sequi.
+        <div className="mt-5">
 
-            </p>
-            {
-                guns.map((gun)=><SingleGun gun ={gun} />)
-            }
+            <div className="my-4">
+                <h1 className="text-4xl text-center text-bold mt-4">
+                    Welcome to Kopa Samsu store
+                </h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam, modi. Magnam odio nobis repellat accusamus eos distinctio ea eius aliquid quibusdam cupiditate dignissimos similique, porro blanditiis temporibus consequuntur a. Quaerat.</p>
+            </div>
+
+            <div className="w-[90%] mx-auto h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                {
+                    guns.map((gun) => <SingleGun gun={gun} countIncrease={countIncrease} />)
+                }
+            </div>
         </div>
     );
 };

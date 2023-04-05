@@ -8,17 +8,15 @@ import Test2 from './components/Test2/Test2';
 
 function App() {
   const [count, setCount] = useState(0);
-  function handleAdd(){
-    setCount(count+1);
-   }
-   function handleMinus(){
-    setCount (count-1);
-   }
   
+  const countIncrease = ()=>{
+    setCount(count+1);
+  }
+
   return (
     <div className="App">
-    <Navbar></Navbar>
-    <AllGuns></AllGuns>
+    <Navbar count={count}></Navbar>
+    <AllGuns countIncrease ={countIncrease } ></AllGuns>
 
     </div>
   );
